@@ -1,0 +1,68 @@
+#include<graphics.h>
+#include<dos.h>
+#include<conio.h>
+
+void main()
+{
+  int temperature;
+  int oxygen;
+  int gd=DETECT , gm;
+  initgraph(&gd,&gm,"C:\\TC\\BGI");
+  clrscr();
+  temperature=18 + (100 - oxygen);
+
+  //oxygen drop(100 to 25),
+  // temperature raises(18 to 48)
+     for( oxygen =100 ; oxygen>=25;oxygen -=25){
+     // inverse logic: 02 down, temperature up
+
+     if (oxygen  == 75) {
+     temperature =18+ (100-75);
+     printf("temperature is %d ",temperature);
+     //level 3: ACHOO!
+
+     setcolor(CYAN);
+     settextstyle(DEFAULT_FONT,HORIZ_DIR, 4);
+     outtextxy(50,50, "AI : ACHOO!");
+     setcolor(WHITE);
+     settextstyle(DEFAULT_FONT,HORIZ_DIR, 2);
+     outtextxy(50,90, "AI : 75% oxygen . Getting warm...");
+     }
+
+	 else if( oxygen == 50 ){
+	 temperature =18+ (100-50);
+	 printf("temperature is %d ",temperature);
+	 //level 2: PHEW!!
+
+    setcolor(YELLOW);
+    settextstyle(DEFAULT_FONT,HORIZ_DIR, 4);
+    outtextxy(50,170, "AI: PHEW!!");
+    setcolor(WHITE);
+    settextstyle(DEFAULT_FONT,HORIZ_DIR, 2);
+    outtextxy(50,220, "AI: 50% oxygen left! ");
+    }
+
+    else if(oxygen == 25) {
+    temperature =18+ (100-25);
+     printf("temperature is %d ",temperature);
+    //level 1: gasp
+
+    setcolor(RED);
+    settextstyle(DEFAULT_FONT,HORIZ_DIR, 4);
+    outtextxy(50,300, "AI: GASP!!!" );
+    setcolor(WHITE);
+    settextstyle(DEFAULT_FONT,HORIZ_DIR, 2);
+    outtextxy(50,340,"AI: 25% oxygen! Danger !...");
+    }
+
+    nosound();
+    delay(3000);
+    }
+
+    setcolor(WHITE);
+    settextstyle(DEFAULT_FONT,HORIZ_DIR, 1);
+    outtextxy(10,450, " Invented by : Praisey Angelica ");
+
+    getch();
+    closegraph();
+}
