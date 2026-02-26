@@ -11,28 +11,38 @@ void main()
   clrscr();
   temperature=18 + (100 - oxygen);
 
-  //oxygen drop(100 to 25),
-  // temperature raises(18 to 48)
-     for( oxygen =100 ; oxygen>=25;oxygen -=25){
-     // inverse logic: 02 down, temperature up
+     printf("enter oxygen (75,50 or 25) :");
+     scanf("%d",&oxygen);
 
      if (oxygen  == 75) {
      temperature =18+ (100-75);
      printf("temperature is %d ",temperature);
      //level 3: ACHOO!
 
+     //visual oxygen tank
+     setcolor(WHITE);
+     rectangle(600,20,630,120);
+     setfillstyle(SOLID_FILL,CYAN);
+     bar(601,200 - (oxygen*2),629,119);
+
      setcolor(CYAN);
      settextstyle(DEFAULT_FONT,HORIZ_DIR, 4);
      outtextxy(50,50, "AI : ACHOO!");
      setcolor(WHITE);
      settextstyle(DEFAULT_FONT,HORIZ_DIR, 2);
-     outtextxy(50,90, "AI : 75% oxygen . Getting warm...");
+     outtextxy(50,90, "AI : 75% oxygen! Getting warm...");
      }
 
 	 else if( oxygen == 50 ){
 	 temperature =18+ (100-50);
-	 printf("temperature is %d ",temperature);
+	 printf("\ temperature is %d ",temperature);
 	 //level 2: PHEW!!
+
+     //visual oxygen tank
+     setcolor(WHITE);
+     rectangle(400,120,431,200);
+     setfillstyle(SOLID_FILL,YELLOW);
+     bar(401,260 - (oxygen*2),430,199);
 
     setcolor(YELLOW);
     settextstyle(DEFAULT_FONT,HORIZ_DIR, 4);
@@ -44,8 +54,14 @@ void main()
 
     else if(oxygen == 25) {
     temperature =18+ (100-25);
-     printf("temperature is %d ",temperature);
+     printf("\t temperature is %d ",temperature);
     //level 1: gasp
+
+    //visual oxygen tank
+     setcolor(WHITE);
+     rectangle(500,270,530,350);
+     setfillstyle(SOLID_FILL,RED);
+     bar(501,380l - (oxygen*2),529,349);
 
     setcolor(RED);
     settextstyle(DEFAULT_FONT,HORIZ_DIR, 4);
@@ -53,10 +69,6 @@ void main()
     setcolor(WHITE);
     settextstyle(DEFAULT_FONT,HORIZ_DIR, 2);
     outtextxy(50,340,"AI: 25% oxygen! Danger !...");
-    }
-
-    nosound();
-    delay(3000);
     }
 
     setcolor(WHITE);
